@@ -1,0 +1,36 @@
+
+<table >
+  <tr>
+    <td>
+      <h2><b>Certifications</b></h2>
+    </td>
+  </tr>
+</table>
+   <hr>
+<mat-accordion>
+  <div *ngIf="profiles.length > 0">
+    <div *ngFor="let profile of profiles" class="profile">
+      <div *ngIf="profile.userid == currentUser.username">
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ profile.name }}
+          </mat-panel-title>
+          <mat-panel-description>
+            Currently I am
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <img [src]="profile.imagePath" [alt]="profile.name" height="500" width="500" />
+      </mat-expansion-panel>
+    </div>
+    </div>
+  </div>
+</mat-accordion>
+<div align="center">
+
+</div>
+
+
+

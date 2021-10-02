@@ -1,0 +1,81 @@
+<div align="left" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <div class="container" >
+    <br>
+    <div   style="background:'white';width:'1100px';padding-top:'0px';padding-right:'50px';padding-left:'50px';padding-bottom:'500px';" class="jumbotron">
+      <br>
+      <br>
+      <h2><b>Results Upload</b></h2>
+      <hr>
+      <br>
+      <table align="left"  >
+         <tr>
+           <td width="202px">
+            <mat-form-field >
+              <mat-label>Year</mat-label>
+              <mat-select [(ngModel)]="br" name="branch">
+                <mat-option *ngFor="let food of branch" [value]="food.value">
+                  {{food.value}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+           </td><td width="20px"></td>
+           <td width="202px">
+            <mat-form-field >
+              <mat-label>Semester</mat-label>
+              <mat-select [(ngModel)]="semester" name="semester">
+                <mat-option *ngFor="let food of semmer" [value]="food.value">
+                  {{food.value}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+           </td>
+
+         </tr>
+         <tr>
+           <td width="202px" colspan="">
+            <input #csvInput hidden="true" id="fileupload" type="file" onclick="this.value=null" (change)="onFileChange($event)"/>
+
+            <button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="csvInput.click()">Add File</button>
+            &nbsp;&nbsp;{{gd.name}}
+           </td>
+<td></td>
+           <td width="202px">
+            <button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="onSubmit()">Upload</button>
+      &nbsp;&nbsp;&nbsp;
+            <button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="export()">Export</button>
+           </td>
+         </tr>
+       </table>
+<br>
+<br>
+<br>
+<br><br>
+
+<hr>
+<br>
+<font size="1" face="Courier New" >
+      <table border="1px"  align="left">
+        <tr *ngFor ="let i of data" >
+      <td *ngFor ="let j of i">
+        {{j}}
+      </td>
+        </tr>
+      </table>
+    </font>
+
+    </div>
+   </div>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+

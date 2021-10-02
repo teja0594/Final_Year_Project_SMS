@@ -1,0 +1,98 @@
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <div class="container">
+    <br><br>
+    <div   style="background:'white';width:'1200px';padding-bottom:'10px';padding-top:'15px'" class="jumbotron">
+    <h2>
+      <b>
+        Admin Attendance Registar
+      </b>
+    </h2>
+  </div>
+    <div   style="background:'white';width:'1200px';padding-bottom:'200px'" class="jumbotron">
+<hr>
+      <table >
+        <tr>
+          <td width="202px">
+            <mat-form-field >
+              <mat-label>Year</mat-label>
+              <mat-select [(ngModel)]="yr" name="branch">
+                <mat-option *ngFor="let food of year" [value]="food.value" (click)="open(yr)">
+                  {{food.value}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td width="202px">
+            <mat-form-field >
+              <mat-label>Courses </mat-label>
+              <mat-select [(ngModel)]="br" name="course">
+                <mat-option *ngFor="let food of courses" [value]="food.coursecode" (click)="sec(br)" >
+                  {{food.coursename}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr> <td width="202px">
+          <mat-form-field >
+            <mat-label>Section</mat-label>
+            <mat-select [(ngModel)]="secf" name="course">
+              <mat-option *ngFor="let food of sections" [value]="food.section"  (click)="getStudents(secf)">
+                {{food.section}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+      </tr>
+
+      </table>
+      <hr>
+      <div *ngIf="ok">
+        <table border="1px" align="center">
+          <th width="404px">
+            ID<br>
+          </th>
+          <th width="404px">
+           Attendance<br>
+         </th>
+         <tr  *ngFor="let i of students">
+           <td width="404px">                 {{i[0].id}}<br>
+           </td>
+           <td width="404px">
+             <mat-radio-group color="primary">
+               <mat-radio-button (click)="attendance(i,pre)" [value]="pre">Present</mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <mat-radio-button (click)="attendance(i,abs)" [value]="abs">Absent</mat-radio-button><br>
+             </mat-radio-group>
+           </td>
+         </tr>
+
+
+
+
+       </table>
+       <br>
+       
+       <div align="center">
+        <button class="z {{theme[0].color}}" mat-raised-button (click)="fattend()">
+          Mark Attendance
+   </button>
+       </div>
+
+
+      </div>
+
+      </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br> <br>
+      <br>
+      </div>

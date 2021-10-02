@@ -1,0 +1,57 @@
+<table  *ngFor="let i of students">
+  <tr>
+    <td style="width:1%" rowspan="4">
+      <img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{i.uid}}.jpg " width="140" height="160"
+      onerror="this.src='../../assets/profileq.png';" />
+      </td >
+      <td  rowspan="4">
+      </td>
+      <td style="width:10%">
+     <b>Name</b>
+    </td>
+    <td><b>:</b></td>
+    <td style="width:35%"><i>{{i.name}}</i></td>
+    <td style="width:10%">
+      <b>Gender</b>
+     </td>
+     <td><b>:</b></td>
+     <td><i>{{i.gender}}</i></td>
+  </tr>
+  <tr>
+    <td style="width:10%"><b>Age</b></td>
+    <td><b>:</b></td>
+    <td style="width:35%"><i>{{i.age}}</i></td>
+    <td style="width:10%"><b>DoB</b></td>
+    <td><b>:</b></td>
+    <td><i>{{i.dob}}</i></td>
+
+  </tr>
+  <tr>
+    <td style="width:10%"><b>Gmail</b></td>
+    <td><b>:</b></td>
+    <td style="width:35%"><i>{{i.pemail}}</i></td>
+    <td style="width:10%"><b>Branch</b></td>
+    <td><b>:</b></td>
+    <td><i>{{i.branch}}</i></td>
+
+  </tr>
+  <tr>
+    <td style="width:10%"><b>University Mail</b></td>
+    <td><b>:</b></td>
+    <td style="width:35%"><i>{{i.uemail}}</i></td>
+    <td style="width:10%"><b>Year</b></td>
+    <td><b>:</b></td>
+    <td><i>{{i.year}}</i></td>
+
+  </tr>
+  <tr>
+    <td><b>ID:&nbsp;{{i.uid}}</b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td align="right"></td>
+  </tr>
+</table>

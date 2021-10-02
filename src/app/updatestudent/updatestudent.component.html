@@ -1,0 +1,92 @@
+<table>
+  <tr>
+    <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+    </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td><h1 style="color:black;"><i><b>Update {{fun.uid+" "}}</b></i> </h1> </td>
+  </tr>
+</table>
+<hr>
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Profile">
+    <hr>
+    <table  >
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td colspan="2" >
+
+          <div >
+            <img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{fun.uid}}.jpg " width="170" height="210"
+            onerror="this.src='../../assets/profileq.png';" />
+            &nbsp; &nbsp;&nbsp; <b>{{&nbsp;&nbsp;&nbsp;fun.name}}</b>
+
+          </div><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div >
+            <button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="editStudent()">Edit</button>&nbsp;&nbsp;&nbsp;
+            <button *ngIf="!fizz" class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="updateStudent()">Update</button>
+            </div>
+        </td>
+        <td>
+
+        </td>
+        <td><div align ="right">
+          <mat-form-field class="me">
+            <mat-label>ID</mat-label>
+            <input  matInput type="text" disabled name="id" [(ngModel)]="fun.uid"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Name</mat-label>
+            <input  matInput type="text"  [disabled]="fizz" name="fname" [(ngModel)]="fun.name"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Age</mat-label>
+            <input  matInput type="text" [disabled]="fizz" name="age" [(ngModel)]="fun.age"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Gender</mat-label>
+            <input  matInput type="text" [disabled]="fizz" name="gender" [(ngModel)]="fun.gender"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Date of Birth  </mat-label>
+            <input  matInput type="date" [disabled]="fizz"  name="dob" [(ngModel)]="fun.dob"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Blood Group</mat-label>
+            <input  matInput type="text"  [disabled]="fizz" name="fname" [(ngModel)]="fun.bloodgroup"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Branch</mat-label>
+            <input  matInput type="text"disabled name="fname" [(ngModel)]="fun.branch"  #name="ngModel">
+          </mat-form-field>
+
+          <mat-form-field class="me">
+            <mat-label>Year</mat-label>
+            <input  matInput type="text" disabled name="year" [(ngModel)]="fun.year"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>University Email</mat-label>
+            <input  matInput type="text" disabled name="umail" [(ngModel)]="fun.uemail"  #name="ngModel">
+          </mat-form-field>
+          <mat-form-field class="me">
+            <mat-label>Gmail</mat-label>
+            <input  matInput type="text"  [disabled]="fizz" name="pemail" [(ngModel)]="fun.pemail"  #name="ngModel">
+          </mat-form-field>
+          </div>
+        </td>
+      </tr>
+      <tr>
+
+      </tr>
+    </table>
+
+
+  </mat-tab>
+  <mat-tab label="Results">
+    <hr>
+    <app-profileresults2></app-profileresults2>
+  </mat-tab>
+  <mat-tab label="Certifications">
+    <hr>
+    <app-file-upload></app-file-upload></mat-tab>
+</mat-tab-group>
+
+

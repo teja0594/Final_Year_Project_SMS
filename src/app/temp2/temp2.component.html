@@ -1,0 +1,391 @@
+
+<div>
+  <table>
+    <tr>
+      <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+      </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td><h1 style="color:black;"><i><b>Student Registration</b></i> </h1></td>
+    </tr>
+  </table><br>
+  <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+<mat-dialog-content  class="mat-typography">
+
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal
+        </mat-panel-title>
+        <mat-panel-description>
+          ---
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+      <mat-form-field class="me">
+        <mat-label>First Name</mat-label>
+        <input  matInput type="text"  name="fname" [(ngModel)]="fname"  #name="ngModel">
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;
+      <mat-form-field class="me">
+        <mat-label>Last Name</mat-label>
+        <input  matInput type="text"  name="lname" [(ngModel)]="lname"  #name="ngModel">
+      </mat-form-field>
+    </div>
+      <mat-form-field class="me">
+        <mat-label>Gender</mat-label>
+        <mat-select   [(ngModel)]="student.gender" name="gender">
+          <mat-option *ngFor="let i of genders" [value]="i.num">
+            {{i.num}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;
+       <mat-form-field class="me">
+        <mat-label>Age</mat-label>
+        <input  matInput type="text"  name="age" [(ngModel)]="student.age"  #name="ngModel"/>
+      </mat-form-field>
+<div>
+      <mat-form-field class="me">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput type="date"  name="dob" [(ngModel)]="student.dob"  #name="ngModel"/>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;
+      <mat-form-field class="me">
+        <mat-label>Blood Group</mat-label>
+        <input matInput type="text"  name="name" [(ngModel)]="student.bloodgroup"  #name="ngModel"/>
+      </mat-form-field>
+    </div>
+      <mat-action-row>
+        <button mat-button color="{{theme[0].color}}" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Education
+        </mat-panel-title>
+        <mat-panel-description>
+          ---
+          <mat-icon>book</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div [ngSwitch]="student.year">
+        <div>
+          <mat-form-field class="me">
+            <mat-label>Year</mat-label>
+              <mat-select [(ngModel)]="student.year" name="year">
+                <mat-option *ngFor="let i of years" [value]="i.num">
+                 {{i.num}}
+                </mat-option>
+              </mat-select>
+             </mat-form-field>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <mat-form-field class="me">
+            <mat-label> Branch</mat-label>
+            <mat-select [(ngModel)]="student.branch" name="branch">
+              <mat-option *ngFor="let i of branches" [value]="i.name">
+                {{i.name}}
+              </mat-option>
+            </mat-select>
+              </mat-form-field>
+        </div>
+
+
+<div  *ngSwitchCase="'II'">
+  <div [ngSwitch]="student.branch">
+    <div *ngSwitchCase="'CSE'">
+      <mat-form-field class="m" >
+        <mat-label> Speclization</mat-label>
+          <mat-select [(ngModel)]="student.ser" name="spec3">
+            <mat-optgroup *ngFor="let i of specs" >
+              <mat-option *ngFor ="let j of i.CSE" [value]="j.code">
+                {{j.name}}
+            </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngSwitchCase="'ECE'">
+      <mat-form-field class="m" >
+        <mat-label> Speclization</mat-label>
+          <mat-select [(ngModel)]="student.ser" name="spec3">
+            <mat-optgroup *ngFor="let i of specs" >
+              <mat-option *ngFor ="let j of i.ECE" [value]="j.code">
+                {{j.name}}
+            </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngSwitchCase="'ECM'">
+      <mat-form-field class="m" >
+        <mat-label> Speclization</mat-label>
+          <mat-select [(ngModel)]="student.ser" name="spec3">
+            <mat-optgroup *ngFor="let i of specs" >
+              <mat-option *ngFor ="let j of i.ECM" [value]="j.code">
+                {{j.name}}
+            </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngSwitchCase="'EEE'">
+      <mat-form-field class="m"  >
+        <mat-label> Speclization</mat-label>
+          <mat-select [(ngModel)]="student.ser" name="spec3">
+            <mat-optgroup *ngFor="let i of specs" >
+              <mat-option *ngFor ="let j of i.EEE" [value]="j.code">
+                {{j.name}}
+            </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngSwitchCase="'ME'">
+      <mat-form-field class="m" >
+        <mat-label> Speclization</mat-label>
+          <mat-select [(ngModel)]="student.ser" name="spec3">
+            <mat-optgroup *ngFor="let i of specs" >
+              <mat-option *ngFor ="let j of i.ME" [value]="j.code">
+                {{j.name}}
+            </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngSwitchCase="'CIVIL'">
+      <mat-form-field class="m" >
+        <mat-label> Speclization</mat-label>
+          <mat-select [(ngModel)]="student.ser" name="spec3">
+            <mat-optgroup *ngFor="let i of specs" >
+              <mat-option *ngFor ="let j of i.CIVIL" [value]="j.code">
+                {{j.name}}
+            </mat-option>
+            </mat-optgroup>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+  </div>
+
+      </div>
+
+      <div  *ngSwitchCase="'III'">
+        <div [ngSwitch]="student.branch">
+          <div *ngSwitchCase="'CSE'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select  [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.CSE" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'ECE'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.ECE" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'ECM'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.ECM" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'EEE'">
+            <mat-form-field class="m"  >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.EEE" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'ME'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.ME" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'CIVIL'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.CIVIL" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+
+        </div>
+
+            </div><div  *ngSwitchCase="'IV'">
+        <div [ngSwitch]="student.branch">
+          <div *ngSwitchCase="'CSE'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select  [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.CSE" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'ECE'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.ECE" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'ECM'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.ECM" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'EEE'">
+            <mat-form-field class="m"  >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.EEE" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'ME'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.ME" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+          <div *ngSwitchCase="'CIVIL'">
+            <mat-form-field class="m" >
+              <mat-label> Speclization</mat-label>
+                <mat-select [(ngModel)]="student.ser" name="spec3">
+                  <mat-optgroup *ngFor="let i of specs" >
+                    <mat-option *ngFor ="let j of i.CIVIL" [value]="j.code">
+                      {{j.name}}
+                  </mat-option>
+                  </mat-optgroup>
+                </mat-select>
+              </mat-form-field>
+          </div>
+
+        </div>
+
+            </div>
+
+      </div>
+
+
+      <mat-action-row>
+        <button mat-button color="{{theme[0].color}}" (click)="prevStep()">Previous</button>
+        <button mat-button color="{{theme[0].color}}" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         Login Access
+        </mat-panel-title>
+        <mat-panel-description>
+          ---
+          <mat-icon>https</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+<div>
+      <mat-form-field class="me">
+        <mat-label>Username</mat-label>
+        <input  matInput type="text"  name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel"/>
+              <div class="alert-danger" *ngIf="f.submitted && username.invalid"></div>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;
+      <mat-form-field class="me">
+        <mat-label>Email</mat-label>
+        <input  matInput type="email"  name="pemail" [(ngModel)]="student.pemail" required email #pemail="ngModel"/>
+      </mat-form-field>
+    </div>
+      <mat-form-field class="m">
+        <mat-label>Password</mat-label>
+          <input matInput type="password"   name="password" [(ngModel)]="form.password" required minlength="6"  #password="ngModel"/>
+          <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">Password must be at least 6 characters </div>
+          </div>
+      </mat-form-field>
+
+      <mat-action-row>
+        <button mat-button color="{{theme[0].color}}" (click)="prevStep()">Previous</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+  <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+    Signup failed!<br />{{ errorMessage }}
+  </div>
+</mat-dialog-content>
+<br>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}">Register</button>
+</mat-dialog-actions>
+</form>
+<div class="alert alert-success" *ngIf="isSuccessful">
+  {{form.username}} registration is successful!
+</div>

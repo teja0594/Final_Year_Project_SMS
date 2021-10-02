@@ -1,0 +1,49 @@
+
+
+<div id="app">
+  <nav class="navbar navbar-expand  sticky-top" style="background-color:rgb(44, 43, 48);">
+    <a href="#" class="navbar-brand"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="120" height="40"></a>
+    <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <div *ngIf="!showAdminBoard">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">Dashboard</a>
+      </div>
+      </li>
+    </ul>
+    <div><br>
+       <h1 style="color:white;"><i><b>Student Management System </b></i> </h1>
+    </div>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+       <button class="m {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="openDialog()">Login</button>
+
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="profile"><img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{username }}.jpg " width="35" height="35"
+          onerror="this.src='../../assets/profileq.png';" />&nbsp;&nbsp;&nbsp;{{username}}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link " (click)="logout()"><button class="m {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}">Logout</button></a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+
+    <router-outlet>
+      <div *ngIf="indicator">
+        Loading.... </div>
+    </router-outlet>
+
+
+
+<app-footer></app-footer>
+
+
+

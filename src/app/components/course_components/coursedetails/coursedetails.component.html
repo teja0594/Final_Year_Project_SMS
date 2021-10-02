@@ -1,0 +1,69 @@
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <div class="container">
+    <br>
+    <div   style="background:'white';width:'1200px';padding:'10px'" class="jumbotron">
+    <h2>
+      <b>
+        Courses Data
+      </b>
+    </h2></div>
+    <div   style="background:'white';width:'1200px'" class="jumbotron">
+      <hr>
+      <table >
+<th colspan="2">
+  Course Name
+</th>
+<th>
+  Course Code
+</th>
+<th>
+  L-T-P-S
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Year
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  Credits
+</th>
+        <tr *ngFor="let i of courses">
+          <td>
+             {{i.coursename}}
+          </td >
+          <td width="50px">
+
+          </td>
+          <td width="130px">
+            {{i.coursecode}}
+         </td>
+         <div *ngFor="let j of i.coursedetails">
+         <td width="130px">
+           {{j.ltps+" "}}
+         </td>
+         <td width="130px">
+          {{j.year+" "}}
+         </td>
+         <td width="130px">
+          {{j.credits}}
+         </td>
+        </div>
+        </tr>
+        <tr>
+
+        </tr>
+      </table>
+      <hr>
+      </div>
+      </div>
+      <br>
+      <br>
+      <br><br>
+      <br>
+      <br><br>
+      <br>
+      <br>
+
+</div>

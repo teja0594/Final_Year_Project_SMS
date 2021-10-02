@@ -1,0 +1,26 @@
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <div class="container">
+    <div class="jumbotron bg-red text white">
+      <mat-grid-list cols="4" rowHeight="75px" [gutterSize]="'10px'" >
+        <div *ngFor="let tile of tiles">
+          <a href="/{{tile.profile}}" routerLink="{{tile.profile}}"class="nav-link" >
+            <mat-grid-tile class="myt" style.background="{{theme[0].theme}}">
+              <mat-icon class="icon-display" >{{tile.cols}}</mat-icon>&nbsp;&nbsp;
+               <span>{{tile.text}}</span>
+
+            </mat-grid-tile>
+          </a>
+        </div>
+      </mat-grid-list>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+  </div>
+  <br>
+  </div>
+

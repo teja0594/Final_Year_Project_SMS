@@ -1,0 +1,93 @@
+
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+themes[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <br>
+  <br>
+  <div class="container">
+  <div   style="background:'white';width:'510px';padding-top:'0px';padding-right:'0px';padding-left:'0px'" class="jumbotron">
+    <mat-toolbar class="z {{themes[0].color}}"  color="{{themes[0].color}}">
+      <button mat-icon-button class="example-icon" >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Settings</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar>
+    <br>
+    <div class="example-action-buttons">
+    </div>
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel  align="left">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Theme
+          </mat-panel-title>
+          <mat-panel-description>
+             {{". "}}
+            <mat-icon>extension</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field >
+          <mat-label>Theme</mat-label>
+          <mat-select [(ngModel)]="selectedTheme" name="food">
+            <mat-option *ngFor="let food of foods" [value]="food">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>&nbsp;&nbsp;
+        <button class="z {{themes[0].color}}" mat-raised-button color="{{themes[0].color}}" (click)="updateTheme()">Set</button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Registration Access
+          </mat-panel-title>
+          <mat-panel-description>
+            .
+            <mat-icon>https</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div align="left" *ngFor="let i of themes">
+          <table>
+            <tr>
+              <td> <b> I Year </b></td>
+              <td> <mat-slide-toggle  checked="{{themes[0].register.I}}" color="warn" (change)="rchangea()" >{{themes[0].register.I?'Opened':'Closed'}}</mat-slide-toggle></td>
+            </tr>
+            <tr>
+              <td><b>II Year</b></td>
+              <td><mat-slide-toggle checked="{{themes[0].register.II}}" color="warn" (change)="rchangeb()" >{{themes[0].register.II?'Opened':'Closed'}}</mat-slide-toggle></td>
+            </tr>
+            <tr>
+              <td><b>III Year</b></td>
+              <td><mat-slide-toggle checked="{{themes[0].register.III}}" color="warn"  (change)="rchangec()" >{{themes[0].register.III?'Opened':'Closed'}}</mat-slide-toggle></td>
+            </tr>
+            <tr>
+              <td><b>IV Year</b></td>
+              <td><mat-slide-toggle checked="{{themes[0].register.IV}}" color="warn" (change)="rchanged()" >{{themes[0].register.IV?'Opened':'Closed'}}</mat-slide-toggle></td>
+            </tr>
+          </table>
+          </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+  &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br>
+    
+    </div>
+    </div>
+
+
+
+

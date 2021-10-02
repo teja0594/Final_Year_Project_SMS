@@ -1,0 +1,10 @@
+.ew{
+  height:1000;
+  background-size:cover;
+  width:auto;
+  background-image:url('https://i.pinimg.com/originals/18/58/89/1858894a22e60b56f1d846f9e24ff474.jpg');
+  background-position:50% 50%;
+}
+h1 {
+  font-style: italic;
+}

@@ -1,0 +1,66 @@
+
+<table >
+  <tr>
+    <td>
+      <h2><b>Certifications</b></h2>
+    </td>
+    <td align="end">
+      <button  mat-raised-button color="primary" (click)="addFile()">Add</button>
+    </td>
+  </tr>
+</table>
+<div *ngIf="by" >
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <br>
+    <table >
+      <tr>
+        <td rowspan=5  width="600px" height="251px">
+          <div *ngIf="imageData" align="center">
+            <img [src]="imageData" [alt]="form.value.name" height="250px" width="400px"/>
+          </div>
+          </td>
+        <td colspan=4  rowspan=4 height="50px">
+          <mat-form-field width="100%" >
+            <mat-label>Certification Name</mat-label>
+        <input  matInput formControlName="name" type="text" />
+      </mat-form-field>
+        </td> </tr>
+        <tr> </tr><tr> </tr><tr></tr>
+      <tr>
+        <td align="left" height="50px" colspan=2>
+          <input  #csvInput hidden="true" id="fileupload"  onclick="this.value=null" (change)="onFileSelect($event)" type="file" />
+          <button  mat-raised-button  color="primary" (click)="csvInput.click()">Add File</button>&nbsp;
+          {{gd}}
+        </td>
+        <td align="right" height="50px">
+          <button mat-raised-button color="primary" type="submit">Upload</button>
+        </td>
+      </tr> </table>
+  </form>
+  </div>
+    <hr>
+<mat-accordion>
+  <div *ngIf="profiles.length > 0">
+    <div *ngFor="let profile of profiles" class="profile">
+      <div *ngIf="profile.userid == currentUser">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ profile.name }}
+          </mat-panel-title>
+          <mat-panel-description>
+            Currently I am
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <img [src]="profile.imagePath" [alt]="profile.name" height="500" width="500" />
+      </mat-expansion-panel>
+</div>
+    </div>
+  </div>
+</mat-accordion>
+<div align="center">
+
+</div>
+
+
+

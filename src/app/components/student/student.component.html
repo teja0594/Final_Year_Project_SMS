@@ -1,0 +1,385 @@
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <br>
+  <div class="container">
+
+    <div   style="background:'white';width:'1200px';padding:'20px'" class="jumbotron {{g}} text-black">
+      <h2><b>
+        Student Data
+      </b></h2>
+    </div>
+        <div   style="background:'white';width:'1200px';padding-bottom:'200px';padding-top:'10px'" class="jumbotron {{g}} text-white">
+
+<mat-tab-group dynamicHeight>
+
+  <mat-tab class="text-white" label= {{y1+year}}>
+
+
+    <div class="example-large-box mat-elevation-z4">
+      <br>
+      <br>
+      <div align="left">
+        <mat-form-field >
+          <mat-label>Branch</mat-label>
+          <mat-select [(ngModel)]="br" name="branch">
+            <mat-option *ngFor="let food of branch" [value]="food.value" (click)="radioOn()">
+              {{food.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <table  >
+        <tr  *ngFor ="let i of students">
+<td *ngIf="i.year == y1">
+      <mat-accordion class="example-headers-align" multi *ngIf="i.branch==br">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              ID:&nbsp;{{" "+i.uid}}
+            </mat-panel-title>
+            <mat-panel-description>
+            {{i.name}}
+              <mat-icon>account_circle
+              </mat-icon>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table >
+            <tr>
+              <td style="width:1%" rowspan="3">
+                <img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{i.uid}}.jpg " width="100" height="140"
+                onerror="this.src='../../assets/profileq.png';" />
+                </td >
+                <td  rowspan="4">
+
+                </td>
+                <td style="width:10%">
+               <b>Name</b>
+              </td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.name}}</i></td>
+              <td style="width:10%">
+                <b>Gender</b>
+               </td>
+               <td><b>:</b></td>
+               <td><i>{{i.gender}}</i></td>
+            </tr>
+            <tr>
+              <td style="width:10%"><b>Gmail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.pemail}}</i></td>
+              <td style="width:10%"><b>Branch</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.branch}}</i></td>
+
+            </tr>
+            <tr>
+              <td style="width:10%"><b>University Mail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.uemail}}</i></td>
+              <td style="width:10%"><b>Year</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.year}}</i></td>
+
+            </tr>
+            <tr>
+              <td><b>ID:&nbsp;{{i.uid}}</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td align="right"><button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="updateStudent(i)"><mat-icon class="icon-display">edit</mat-icon>Edit</button></td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </td>
+  </tr>
+</table>
+
+    </div>
+  </mat-tab>
+  <mat-tab label={{y2+year}}>
+    <div class="example-large-box mat-elevation-z4">
+      <br>
+      <br>
+      <div align="left">
+        <mat-form-field >
+          <mat-label>Branch</mat-label>
+          <mat-select [(ngModel)]="br2" name="branch">
+            <mat-option *ngFor="let food of branch" [value]="food.value" (click)="radioOn()">
+              {{food.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <table  >
+        <tr  *ngFor ="let i of students">
+<td *ngIf="i.year == y2">
+      <mat-accordion class="example-headers-align" multi *ngIf="i.branch==br2">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              ID:&nbsp;{{" "+i.uid}}
+            </mat-panel-title>
+            <mat-panel-description>
+            {{i.name}}
+              <mat-icon>account_circle
+              </mat-icon>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table >
+            <tr>
+              <td style="width:1%" rowspan="3">
+                <img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{i.uid}}.jpg " width="100" height="140"
+                onerror="this.src='../../assets/profileq.png';" />
+                </td >
+                <td  rowspan="4">
+
+                </td>
+                <td style="width:10%">
+               <b>Name</b>
+              </td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.name}}</i></td>
+              <td style="width:10%">
+                <b>Gender</b>
+               </td>
+               <td><b>:</b></td>
+               <td><i>{{i.gender}}</i></td>
+            </tr>
+            <tr>
+              <td style="width:10%"><b>Gmail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.pemail}}</i></td>
+              <td style="width:10%"><b>Branch</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.branch}}</i></td>
+
+            </tr>
+            <tr>
+              <td style="width:10%"><b>University Mail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.uemail}}</i></td>
+              <td style="width:10%"><b>Year</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.year}}</i></td>
+
+            </tr>
+            <tr>
+              <td><b>ID:&nbsp;{{i.uid}}</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td align="right"><button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="updateStudent(i)"><mat-icon class="icon-display">remove_red_eye</mat-icon>View</button></td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </td>
+  </tr>
+</table>
+
+    </div>
+
+  </mat-tab>
+  <mat-tab label={{y3+year}}>
+    <div class="example-large-box mat-elevation-z4">
+      <br>
+      <br>
+      <div align="left">
+        <mat-form-field >
+          <mat-label>Branch</mat-label>
+          <mat-select [(ngModel)]="br3" name="branch">
+            <mat-option *ngFor="let food of branch" [value]="food.value" (click)="radioOn()">
+              {{food.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+      <table  >
+        <tr  *ngFor ="let i of students">
+<td *ngIf="i.year == y3">
+      <mat-accordion class="example-headers-align" multi *ngIf="i.branch==br3">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              ID:&nbsp;{{" "+i.uid}}
+            </mat-panel-title>
+            <mat-panel-description>
+            {{i.name}}
+              <mat-icon>account_circle
+              </mat-icon>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table >
+            <tr>
+              <td style="width:1%" rowspan="3">
+                <img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{i.uid}}.jpg " width="100" height="140"
+                onerror="this.src='../../assets/profileq.png';" />
+                </td >
+                <td  rowspan="4">
+
+                </td>
+                <td style="width:10%">
+               <b>Name</b>
+              </td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.name}}</i></td>
+              <td style="width:10%">
+                <b>Gender</b>
+               </td>
+               <td><b>:</b></td>
+               <td><i>{{i.gender}}</i></td>
+            </tr>
+            <tr>
+              <td style="width:10%"><b>Gmail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.pemail}}</i></td>
+              <td style="width:10%"><b>Branch</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.branch}}</i></td>
+
+            </tr>
+            <tr>
+              <td style="width:10%"><b>University Mail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.uemail}}</i></td>
+              <td style="width:10%"><b>Year</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.year}}</i></td>
+
+            </tr>
+            <tr>
+              <td><b>ID:&nbsp;{{i.uid}}</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td align="right"><button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="updateStudent(i)"><mat-icon class="icon-display">edit</mat-icon>Edit</button></td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </td>
+  </tr>
+</table>
+
+    </div>
+
+  </mat-tab>
+  <mat-tab  [ngStyle]="{'color':'red'}" label={{y4+year}}>
+    <div class="example-large-box mat-elevation-z4">
+      <br>
+      <br>
+      <div align="left">
+        <mat-form-field >
+          <mat-label>Branch</mat-label>
+          <mat-select [(ngModel)]="br4" name="branch">
+            <mat-option *ngFor="let food of branch" [value]="food.value" (click)="radioOn()">
+              {{food.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+      <table  >
+        <tr  *ngFor ="let i of students">
+<td *ngIf="i.year == y4">
+  <div >
+      <mat-accordion class="example-headers-align" multi *ngIf="i.branch==br4">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              ID:&nbsp;{{" "+i.uid}}
+            </mat-panel-title>
+            <mat-panel-description>
+            {{i.name}}
+              <mat-icon>account_circle
+              </mat-icon>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table >
+            <tr>
+              <td style="width:1%" rowspan="3">
+                <img  class="fun" src="https://tinyurl.com/y5u5pdnb/{{i.uid}}.jpg " width="100" height="140"
+                onerror="this.src='../../assets/profileq.png';" />
+                </td >
+                <td  rowspan="4">
+
+                </td>
+                <td style="width:10%">
+               <b>Name</b>
+              </td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.name}}</i></td>
+              <td style="width:10%">
+                <b>Gender</b>
+               </td>
+               <td><b>:</b></td>
+               <td><i>{{i.gender}}</i></td>
+            </tr>
+            <tr>
+              <td style="width:10%"><b>Gmail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.pemail}}</i></td>
+              <td style="width:10%"><b>Branch</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.branch}}</i></td>
+
+            </tr>
+            <tr>
+              <td style="width:10%"><b>University Mail</b></td>
+              <td><b>:</b></td>
+              <td style="width:35%"><i>{{i.uemail}}</i></td>
+              <td style="width:10%"><b>Year</b></td>
+              <td><b>:</b></td>
+              <td><i>{{i.year}}</i></td>
+
+            </tr>
+            <tr>
+              <td><b>ID:&nbsp;{{i.uid}}</b></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td align="right"><button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}" (click)="updateStudent(i)"><mat-icon class="icon-display">edit</mat-icon>Edit</button></td>
+            </tr>
+          </table>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </div>
+    </td>
+  </tr>
+</table>
+
+    </div>
+
+  </mat-tab>
+</mat-tab-group>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

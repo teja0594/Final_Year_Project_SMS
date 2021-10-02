@@ -1,0 +1,528 @@
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <br><br>
+<div class="container" >
+  <div   style="background:'white';width:'1000px';padding-top:'0px';padding-right:'50px';padding-left:'50px';padding-bottom:'500px';" class="jumbotron">
+    <div *ngIf="student[0].year=='I'">
+      <div class="alert alert-danger" *ngIf="!theme[0].register.I">
+        {{student[0].year}}
+      Registrations Closed
+      </div >
+      <div  *ngIf="theme[0].register.I">
+        <br><br>
+        <div>
+          <table   align="left">
+            <tr>
+              <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td><h1 align="center"> {{student[0].year}} Year Registration <b><i></i></b></h1></td>
+            </tr>
+          </table></div>
+          <br><br><br><br>
+          <hr>
+
+
+          <br>
+          <div  >
+<table>
+<th>
+  <h2>
+    Core  Courses
+  </h2>
+
+</th>
+<tr>
+  <table  border="1px">
+    <div *ngFor ="let i of first_year_courses; let ih = index">
+
+         <div *ngIf="i[0].coursedetails[0].type=='Core'">
+
+         <tr>
+
+          <td width="202px" >
+                 {{i[0].coursename}}
+             </td>
+             <td width="202px" >
+         {{i[0].coursecode}}
+         {{i[0].coursedetails[0].ltps}}
+       </td>
+       <td width="202px" >
+      <mat-form-field >
+        <mat-label>Section</mat-label>
+        <mat-select  [(ngModel)]="i[1].sec" name="food">
+          <mat-option>None</mat-option>
+          <mat-option  *ngFor="let s of i[0].enrolledStudents" (click)="if3(i,i[1].sec)" [value]="s.section">
+              {{s.section}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+</td>
+</tr>
+</div>
+</div>
+</table>
+</tr>
+
+<tr>
+  <td>
+       &nbsp;&nbsp;
+  </td>
+</tr>
+<tr>
+
+  <td  align="right">
+
+      <button mat-button> Cancel</button>&nbsp;&nbsp;&nbsp;
+      <button  align ="right" class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}"  (click)="info(first_year_courses )">Proceed </button>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+<br>
+<hr>
+
+
+      </div >
+
+    </div>
+    <div *ngIf="student[0].year=='II'">
+      <div class="alert alert-danger" *ngIf="!theme[0].register.II">
+        {{student[0].year}}
+      Registrations Closed
+      </div >
+      <div  *ngIf="theme[0].register.II">
+        <br><br>
+        <div>
+          <table   align="left">
+            <tr>
+              <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td><h1 align="center"> {{student[0].year}} Year Registration <b><i></i></b></h1></td>
+            </tr>
+          </table></div>
+          <br><br><br><br>
+          <hr>
+
+
+          <br>
+          <div  >
+<table>
+<th>
+  <h2>
+    Core  Courses
+  </h2>
+
+</th>
+<tr>
+  <table  border="1px">
+    <div *ngFor ="let i of second_year_courses; let ih = index">
+
+         <div *ngIf="i[0].coursedetails[0].type=='Core'">
+
+         <tr>
+
+          <td width="202px" >
+                 {{i[0].coursename}}
+             </td>
+             <td width="202px" >
+         {{i[0].coursecode}}
+         {{i[0].coursedetails[0].ltps}}
+       </td>
+       <td width="202px" >
+      <mat-form-field >
+        <mat-label>Section</mat-label>
+        <mat-select  [(ngModel)]="i[1].sec" name="food">
+          <mat-option>None</mat-option>
+          <mat-option  *ngFor="let s of i[0].enrolledStudents" (click)="if3(i,i[1].sec)" [value]="s.section">
+              {{s.section}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+</td>
+</tr>
+</div>
+</div>
+</table>
+</tr>
+
+
+</table>
+<br>
+<table  border="1px">
+  <th>
+    <h2>
+      Specilization Courses
+    </h2>
+
+  </th>
+  <tr>
+
+    <table border="1px">
+
+      <div *ngFor ="let i of second_year_courses; ">
+
+          <div *ngIf="i[0].coursedetails[0].spec==student[0].ser">
+      <tr>
+
+      <td width="202px" >
+             {{i[0].coursename}}
+         </td>
+         <td width="202px" >
+     {{i[0].coursecode}}
+     {{i[0].coursedetails[0].ltps}}
+   </td>
+   <td width="202px" >
+
+  <mat-form-field >
+    <mat-label>Section</mat-label>
+    <mat-select  [(ngModel)]="i[1].sec"  name="food">
+      <mat-option>None</mat-option>
+      <mat-option  *ngFor="let s of i[0].enrolledStudents"  (click)="if3(i,i[1].sec)" [value]="s.section">
+          {{s.section}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</td>
+</tr>
+
+</div>
+</div>
+</table>
+</tr>
+<tr>
+  <td>
+       &nbsp;&nbsp;
+  </td>
+</tr>
+<tr>
+
+  <td  align="right">
+
+      <button mat-button> Cancel</button>&nbsp;&nbsp;&nbsp;
+      <button  align ="right" class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}"  (click)="info(second_year_courses )">Proceed </button>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+<br>
+<hr>
+
+
+      </div >
+
+    </div>
+    <div *ngIf="student[0].year=='III'">
+      <br><br>
+      <div class="alert alert-danger" *ngIf="!(theme[0].register.III)">
+        {{student[0].year}}{{" Year"}}
+      Registrations Closed
+      </div >
+      <div  *ngIf="theme[0].register.III">
+        <br><br>
+        <div>
+          <table   align="left">
+            <tr>
+              <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td><h1 align="center"> {{student[0].year}} Year Registration <b><i></i></b></h1></td>
+            </tr>
+          </table></div>
+          <br><br><br><br>
+          <hr>
+
+
+          <br>
+          <div  >
+<table>
+<th>
+  <h2>
+    Core  Courses
+  </h2>
+
+</th>
+<tr>
+  <table  border="1px">
+    <div *ngFor ="let i of third_year_courses; let ih = index">
+
+         <div *ngIf="i[0].coursedetails[0].type=='Core'">
+
+         <tr>
+
+          <td width="202px" >
+                 {{i[0].coursename}}
+             </td>
+             <td width="202px" >
+         {{i[0].coursecode}}
+         {{i[0].coursedetails[0].ltps}}
+       </td>
+       <td width="202px" >
+      <mat-form-field >
+        <mat-label>Section</mat-label>
+        <mat-select  [(ngModel)]="i[1].sec" name="food">
+          <mat-option>None</mat-option>
+          <mat-option  *ngFor="let s of i[0].enrolledStudents" (click)="if3(i,i[1].sec)" [value]="s.section">
+              {{s.section}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+</td>
+</tr>
+</div>
+</div>
+</table>
+</tr>
+
+
+</table>
+<br>
+<table  border="1px">
+  <th>
+    <h2>
+      Specilization Courses
+    </h2>
+
+  </th>
+  <tr>
+
+    <table border="1px">
+
+      <div *ngFor ="let i of third_year_courses; ">
+
+          <div *ngIf="i[0].coursedetails[0].spec==student[0].ser">
+      <tr>
+
+      <td width="202px" >
+             {{i[0].coursename}}
+         </td>
+         <td width="202px" >
+     {{i[0].coursecode}}
+     {{i[0].coursedetails[0].ltps}}
+   </td>
+   <td width="202px" >
+
+  <mat-form-field >
+    <mat-label>Section</mat-label>
+    <mat-select  [(ngModel)]="i[1].sec"  name="food">
+      <mat-option>None</mat-option>
+      <mat-option  *ngFor="let s of i[0].enrolledStudents"  (click)="if3(i,i[1].sec)" [value]="s.section">
+          {{s.section}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</td>
+</tr>
+
+</div>
+</div>
+</table>
+</tr>
+<tr>
+  <td>
+       &nbsp;&nbsp;
+  </td>
+</tr>
+<tr>
+
+  <td  align="right">
+
+      <button mat-button> Cancel</button>&nbsp;&nbsp;&nbsp;
+      <button  align ="right" class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}"  (click)="info(third_year_courses )">Proceed </button>
+    </td>
+  </tr>
+</table>
+</div>
+
+
+<br>
+<hr>
+
+
+      </div >
+    </div>
+    <div *ngIf="student[0].year=='IV'">
+      <br>
+      <br>
+
+      <div class="alert alert-danger" *ngIf="!theme[0].register.IV">
+        {{student[0].year}}
+      Registrations Closed
+      </div >
+      <div  *ngIf="theme[0].register.IV">
+        <br><br>
+        <div>
+          <table   align="left">
+            <tr>
+              <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </td>
+              <td><h1 align="center"> {{student[0].year}} Year Registration <b><i></i></b></h1></td>
+            </tr>
+          </table></div>
+          <br><br><br><br>
+          <hr>
+
+
+          <br>
+          <div  >
+<table>
+<th>
+  <h2>
+    Core  Courses
+  </h2>
+
+</th>
+<tr>
+  <table  border="1px">
+    <div *ngFor ="let i of forth_year_courses; let ih = index">
+
+         <div *ngIf="i[0].coursedetails[0].type=='Core'">
+
+         <tr>
+
+          <td width="202px" >
+                 {{i[0].coursename}}
+             </td>
+             <td width="202px" >
+         {{i[0].coursecode}}
+         {{i[0].coursedetails[0].ltps}}
+       </td>
+       <td width="202px" >
+      <mat-form-field >
+        <mat-label>Section</mat-label>
+        <mat-select  [(ngModel)]="i[1].sec" name="food">
+          <mat-option>None</mat-option>
+          <mat-option  *ngFor="let s of i[0].enrolledStudents" (click)="if3(i,i[1].sec)" [value]="s.section">
+              {{s.section}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+</td>
+</tr>
+</div>
+</div>
+</table>
+</tr>
+
+
+</table>
+<br>
+<table >
+  <th>
+    <h2>
+      Specilization Courses
+    </h2>
+
+  </th>
+  <tr>
+
+    <table border="1px">
+
+      <div *ngFor ="let i of forth_year_courses; ">
+
+          <div *ngIf="i[0].coursedetails[0].spec==student[0].ser">
+      <tr>
+
+      <td width="202px" >
+             {{i[0].coursename}}
+         </td>
+         <td width="202px" >
+     {{i[0].coursecode}}
+     {{i[0].coursedetails[0].ltps}}
+   </td>
+   <td width="202px" >
+
+  <mat-form-field >
+    <mat-label>Section</mat-label>
+    <mat-select  [(ngModel)]="i[1].sec"  name="food">
+      <mat-option>None</mat-option>
+      <mat-option  *ngFor="let s of i[0].enrolledStudents"  (click)="if3(i,i[1].sec)" [value]="s.section">
+          {{s.section}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</td>
+</tr>
+
+</div>
+</div>
+</table>
+  </tr>
+  <tr>
+    <td>
+         &nbsp;&nbsp;
+    </td>
+  </tr>
+  <tr>
+
+    <td  align="right">
+
+        <button mat-button > Cancel</button>&nbsp;&nbsp;&nbsp;
+      <button  class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}"  (click)="info(forth_year_courses )">Proceed</button>
+
+    </td>
+
+
+  </tr>
+</table>
+</div>
+
+
+<br>
+<hr>
+
+
+      </div >
+    </div>
+
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>

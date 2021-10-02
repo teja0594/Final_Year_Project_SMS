@@ -1,0 +1,151 @@
+
+<div align="center" [ngStyle]="{
+  'height':'1000',
+  'background-image': 'url('+theme[0].image+')',
+  'background-size': 'cover',
+  'width':'auto',
+  'background-position':'50% 50%',
+  'background-attachment': 'fixed'}">
+  <br>
+  <br>
+  <div class="container">
+  <div   style="background:'white';width:'510px'" class="jumbotron">
+    <div>
+    <table  align="left">
+      <tr>
+        <td><img center id="profile-img" src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png" width="160" height="60"/>
+        </td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </td>
+        <td><h1 align="center"> <b><i>Add Course</i></b></h1></td>
+      </tr>
+    </table>
+  </div>
+
+  <br><br><br><br>
+
+    <div>
+      <div>
+        <hr>
+        <h3><b>Course Info</b>
+        </h3>
+        <hr>
+
+      </div>
+    <table  >
+        <tr><td><mat-form-field class="me"> <mat-label>Course Name</mat-label>
+              <input  matInput type="text"  name="coursename" [(ngModel)]="coursename"  #name="ngModel">
+            </mat-form-field></td><td width="10px"></td>
+          <td> <mat-form-field class="me"> <mat-label>Course Code</mat-label>
+              <input  matInput type="text"  name="coursecode" [(ngModel)]="coursecode"  #name="ngModel">
+            </mat-form-field></td></tr>
+            <tr>
+          <td colspan="3"><button class="z {{theme[0].color}}" mat-raised-button color="{{theme[0].color}}"  id="my" (click)="nextDetails()" >Next</button></td></tr>
+      </table>
+      <br>
+
+    <div *ngIf="ok">
+      <div>
+        <hr>
+        <h3><b>Course Configuration</b>
+        </h3>
+        <hr>
+
+      </div>
+
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <table  ><tr>
+       <td width="101px"> <mat-form-field [style.width.px]=95 class="me"><mat-label>Lecture</mat-label>
+        <input  matInput type="number"  name="lecture" [(ngModel)]="l"  #name="ngModel"/>
+      </mat-form-field></td>
+      <td width="101px"><mat-form-field  [style.width.px]=95  class="me"> <mat-label>Tutorial</mat-label>
+        <input  matInput type="number"  name="tutorial" [(ngModel)]="t"  #name="ngModel"/>
+      </mat-form-field> </td>
+      <td width="101px"> <mat-form-field  [style.width.px]=95  class="me"> <mat-label>Practical</mat-label>
+        <input  matInput type="number"  name="practical" [(ngModel)]="p"  #name="ngModel"/>
+      </mat-form-field> </td>
+      <td width="101px" > <mat-form-field [style.width.px]=95  class="me"> <mat-label>Skill</mat-label>
+        <input  matInput type="number"  name="skill" [(ngModel)]="s"  #name="ngModel"/>
+      </mat-form-field> </td> </tr>
+  <tr><td width="101px"><mat-form-field [style.width.px]=95 class="me"><mat-label>Credits</mat-label>
+        <input matInput type="text"  name="credits" [(ngModel)]="course.credits"  #name="ngModel"/>
+      </mat-form-field> </td>
+      <td width="101px"><mat-form-field [style.width.px]=95  class="me"><mat-label>Year</mat-label>
+        <mat-select   [(ngModel)]="course.year" name="year">
+          <mat-option [value]="'I'">I Year</mat-option>
+          <mat-option [value]="'II'"> II Year</mat-option>
+          <mat-option [value]="'III'">III Year</mat-option>
+          <mat-option [value]="'IV'">IV Year</mat-option>
+        </mat-select></mat-form-field> </td>
+  <td width="202px" colspan="2">
+    <mat-form-field [style.width.px]=190 class="me"> <mat-label>Course Type</mat-label>
+      <mat-select   [(ngModel)]="course.type" name="ctype">
+        <mat-option [value]="'Core'">Core Course</mat-option>
+        <mat-option [value]="'Specialization'">Specialization Course</mat-option>
+      </mat-select> </mat-form-field>
+      </td></tr>
+    <tr>
+      <td width="404px" colspan="4" [ngSwitch]="course.type">
+         <div *ngSwitchCase="'Specialization'">
+              <mat-form-field [style.width.px]=395  class="me"><mat-label>Specialization</mat-label>
+               <mat-select   [(ngModel)]="course.spec" name="spec">
+               <mat-option [value]="'AI'">Artificial Intelligence</mat-option>
+               <mat-option [value]="'DS'"> Data Science</mat-option>
+               <mat-option [value]="'SE'">Software Engineering</mat-option>
+               <mat-option [value]="'CS'">Cyber Security</mat-option>
+               <mat-option [value]="'CC'">Cloud Computing</mat-option>
+              </mat-select></mat-form-field>
+            </div>
+       </td>
+     </tr>
+     <tr>
+      <td width="202px" colspan="2"><mat-form-field  [style.width.px]=190  class="me"> <mat-label>No Of Sections</mat-label>
+        <input  matInput type="number"  name="tutorial" [(ngModel)]="nos"  #name="ngModel"/>
+      </mat-form-field> </td>
+      <td width="202px" colspan="2"><mat-form-field  [style.width.px]=190  class="me"> <mat-label>Max Students</mat-label>
+        <input  matInput type="number"  name="tutorial" [(ngModel)]="maxstud"  #name="ngModel"/>
+      </mat-form-field> </td>
+     </tr>
+  <tr>
+  <td width="404px" colspan="4">
+    <mat-form-field [style.width.px]=395 class="me"> <mat-label>Prerequsite</mat-label>
+      <mat-select   [(ngModel)]="course.prc" name="gender">
+        <mat-option [value]="'Yes'"> Yes</mat-option>
+        <mat-option [value]="'No'"> No</mat-option>
+      </mat-select> </mat-form-field>
+  </td></tr>
+  <tr>
+  <td width="202px" colspan="2" [ngSwitch]="course.prc">
+    <div *ngSwitchCase="'Yes'">
+      <mat-form-field [style.width.px]=190  class="me"> <mat-label>Prerequisite Course</mat-label>
+        <input matInput type="text"  name="prcn" [(ngModel)]="course.prcn"  #name="ngModel"/>
+      </mat-form-field>
+     </div>
+    </td>
+    <td width="202px" colspan="2" [ngSwitch]="course.prc">
+      <div *ngSwitchCase="'Yes'">
+        <mat-form-field [style.width.px]=190  class="me"> <mat-label>Prerequisite Course Code</mat-label>
+          <input matInput type="text"  name="prcc" [(ngModel)]="course.prcc"  #name="ngModel"/>
+        </mat-form-field> </div>
+      </td>
+    </tr>
+    <tr>
+      <td width="202px" colspan="2" >
+        <button mat-raised-button  id="my2"  (click)="cancel()">Cancel</button>
+      </td>
+      <td width="202px"  colspan="2">
+        <button class="z {{theme[0].color}}"  mat-raised-button id="my2" color="{{theme[0].color}}">Add Course</button>
+      </td>
+    </tr>
+  </table>
+    <div class="alert alert-warning" *ngIf="f.submitted">
+      Error in adding Course {{coursename}}<br /></div>
+
+
+  </form>
+</div>
+</div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>

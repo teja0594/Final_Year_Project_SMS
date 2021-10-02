@@ -1,0 +1,673 @@
+
+     {{currentUser.username}}
+     <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Year I">
+         <br>
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester I
+                </mat-panel-title>
+                <mat-panel-description>
+                .
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+                <div class="alert alert-danger" >
+                results not exist
+                </div >
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y1">
+                    <div *ngIf="i.semester == s1">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      <br>
+                   &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester II
+                </mat-panel-title>
+                <mat-panel-description>
+                  .
+                  <mat-icon>date_range</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+                <div class="alert alert-danger" >
+                results not exist
+                </div >
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y1">
+                    <div *ngIf="i.semester == s2">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+                </div>
+                </table>
+                </div>
+                </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+        </mat-tab>
+        <mat-tab label="Year II">
+          <br>
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester I
+                </mat-panel-title>
+                <mat-panel-description>
+                 .
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+
+                <div class="alert alert-danger" >
+
+                results not exist
+                </div >
+
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y2">
+                    <div *ngIf="i.semester == s1">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+
+
+
+
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester II
+                </mat-panel-title>
+                <mat-panel-description>
+                  .
+                  <mat-icon>date_range</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+
+                <div class="alert alert-danger" >
+
+                results not exist
+                </div >
+
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y2">
+                    <div *ngIf="i.semester == s2">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+
+
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-tab>
+        <mat-tab label="Year III">
+          <br>
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester I
+                </mat-panel-title>
+                <mat-panel-description>
+                 .
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+
+                <div class="alert alert-danger" >
+
+                results not exist
+                </div >
+
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y3">
+                    <div *ngIf="i.semester == s1">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+
+
+
+
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester II
+                </mat-panel-title>
+                <mat-panel-description>
+                .
+                  <mat-icon>date_range</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+
+                <div class="alert alert-danger" >
+
+                results not exist
+                </div >
+
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y3">
+                    <div *ngIf="i.semester == s2">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+
+
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-tab>
+        <mat-tab label="Year IV">
+          <br>
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester I
+                </mat-panel-title>
+                <mat-panel-description>
+                 .
+                  <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+
+                <div class="alert alert-danger" >
+
+                results not exist
+                </div >
+
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y4">
+                    <div *ngIf="i.semester == s1">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+
+
+
+
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Semester II
+                </mat-panel-title>
+                <mat-panel-description>
+                  .
+                  <mat-icon>date_range</mat-icon>
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div *ngIf="!by">
+
+                <div class="alert alert-danger" >
+
+                results not exist
+                </div >
+
+              </div>
+              <div>
+                <div *ngIf="by">
+                  <hr>
+
+                <table border="1px" *ngFor="let i of bulkresults">
+                  <div *ngIf="i.year == y4">
+                    <div *ngIf="i.semester == s2">
+                  <tr>
+                    <th width="101px">University Id</th>
+                    <th width="240px">Student Name</th>
+                    <th  width="100px">Course Code</th>
+                    <th colspan="2" width="300px">Course Name	</th>
+
+                    <th>Grade</th>
+                    <th> Grade Point</th>
+                  </tr>
+                  <tr>
+                    <td rowspan="5"> {{i.uid}}</td>
+                       <td rowspan="5">{{i.name}}</td>
+                       <td colspan="2"> {{i.cc1}}</td>
+                        <td> {{i.cn1}}</td>
+                        <td>{{grading(i.cin1+i.cex1)}}</td>
+                        <td>{{gp1}}</td>
+                        <td></td>
+
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc2}}</td>
+                    <td>{{i.cn2}} </td>
+                    <td>{{grading1(i.cin2+i.cex2)}}</td>
+                    <td>{{gp2}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc3}}</td>
+                    <td> {{i.cn3}}</td>
+                    <td>{{grading2(i.cin3+i.cex3)}}</td>
+                    <td>{{gp3}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc4}}</td>
+                    <td> {{i.cn4}}</td>
+                    <td>{{grading3(i.cin4+i.cex4)}}</td>
+                    <td>{{gp4}}</td>
+                  </tr>
+                  <tr>
+                    <td  colspan="2"> {{i.cc5}}</td>
+                    <td> {{i.cn5}}</td>
+                    <td>{{grading4(i.cin5+i.cex5)}}</td>
+                    <td>{{gp5}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7">
+                      &nbsp;&nbsp; <h2 class="text-success"><b> SGPA: {{(gp1+gp2+gp3+gp4+gp5)/5}}</b></h2>
+                    </td>
+                  </tr>
+                </div>
+              </div>
+                </table>
+                </div>
+                </div>
+
+
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-tab>
+      </mat-tab-group>
